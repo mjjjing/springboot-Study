@@ -1,10 +1,13 @@
 package com.mjjjing.wiki.controller;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
 //请求注解
 @RestController
 public class TestController {
 
+    @Value("${test.hello:Test}")
+    private String testHello;
     //GET,POST,PUT,DELETE
     /*@GetMapping
     @PostMapping
@@ -15,7 +18,7 @@ public class TestController {
     @RequestMapping(value = "/user/1",method = RequestMethod.DELETE)*/;
     @GetMapping("/hello")
     public String hello(){
-        return "hello world!!";
+        return "hello world!!"+testHello;
     }
     @PostMapping("hello/post")
     public String helloPost(String name){
