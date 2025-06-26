@@ -1,6 +1,7 @@
 package com.mjjjing.wiki.controller;
 
 import com.mjjjing.wiki.domain.Ebook;
+import com.mjjjing.wiki.resp.CommonResp;
 import com.mjjjing.wiki.service.EbookService;
 import jakarta.annotation.Resource;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -19,11 +20,10 @@ public class EbookController {
     public EbookService ebookService;
 
     @GetMapping("/list")
-    public Object list(){
+    public CommonResp list(){
+        CommonResp<List<Ebook>> resp = new CommonResp<>();
         List<Ebook> list = ebookService.list();
-        if (list!=null){
-            return ebookService.list();
-        }
-        return "空";
+        resp.setContent(list);
+        return resp;
     }
 }
