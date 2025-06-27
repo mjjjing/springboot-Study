@@ -103,11 +103,9 @@ export default defineComponent({
   setup(){
     const ebooks =ref();
     onMounted(()=>{
-      console.log("onMounted");
       Axios.get("/ebook/list").then((response) => {
         const data = response.data;
         ebooks.value = data.content;
-        console.log(response)
       })
     })
     const pagination = {
