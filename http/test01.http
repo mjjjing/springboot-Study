@@ -20,4 +20,4 @@ name=mjjjing
 
 ###
 
-GET http://localhost:8080/test/list
+GET http://localhost:8082/test/list
