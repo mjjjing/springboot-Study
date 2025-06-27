@@ -57,8 +57,14 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue';
-
+import Axios from "axios";
 export default defineComponent({
   name: 'HomeView',
+  setup(){
+    console.log("setup");
+    Axios.get("http://localhost:8082/ebook/list?name=Vue").then((response) => {
+      console.log(response);
+    })
+  }
 });
 </script>
